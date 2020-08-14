@@ -1,8 +1,7 @@
 #                       *************** Author: -> Nanthakumar J J *****************
-'''THIS CODE IS CREATED BY NANTHAKUMAR J J U CAN USE THIS CODE AND MODIFY BUT DONT FORGOT TO GIVE CREDITS TO https://jjnanthakumar.github.io/'''
-'''#FEEL FREE TO CONTACT ME IF ANY ERROR OCCURS#'''
+'''THIS CODE IS CREATED BY NANTHAKUMAR J J U CAN USE THIS CODE AND MODIFY BUT DONT FORGOT TO GIVE CREDITS TO https://jjnanthakumar.github.io/
+#FEEL FREE TO CONTACT ME IF ANY ERROR OCCURS#'''
 #HAVE FUN
-
 
 import random, sys
 
@@ -95,29 +94,16 @@ def finalresult(h_score, c_score, name):
 
 print("********Hand Cricket Game versus Machine**********")
 name = input("Enter your name: ")
-try:
-    if type(name) != str:
-        raise Exception
-    if int(name):
-        sys.exit("Oops! Please Provide a valid name..")
-except ValueError:
-    pass
-except Exception:
-    sys.exit("Oops! Please Provide a valid name..")
+if name.isnumeric():
+    raise ValueError("Oops! Please Provide a valid name..")
+
 print("Welcome to Handcricket Game Mr/Ms/Mrs. " + name.upper())
 h_score, c_score = 0, 0
 c_dict = {1: 'odd', 2: 'even'}
 c_batorbowl = {1: 'batting', 2: 'bowling'}
 ur_toss = input("Choose odd or even for tossing: --> ")
-try:
-    if type(ur_toss) != str or ur_toss != 'odd' and ur_toss != 'even':
-        raise Exception
-    if int(ur_toss):
-        sys.exit("Oops! Please Provide a valid input..")
-except ValueError:
-    pass
-except Exception:
-    sys.exit("Oops! Please Provide a valid input..")
+if ur_toss.isnumeric() or ur_toss != 'odd' and ur_toss != 'even' and ur_toss != 'EVEN' and ur_toss != 'ODD':
+    raise ValueError("Oops! Please Provide a valid input.. either odd or even")
 ur_toss = ur_toss.lower()
 c_toss = random.randint(1, 2)
 power = ''
@@ -125,8 +111,8 @@ if (ur_toss == 'even' and c_dict.get(c_toss) == 'odd') or (ur_toss == 'odd' and 
     c_toss_num = random.randint(1, 100)
     try:
         h_toss_num = int(input("Please enter any number for even or odd toss : "))
-    except:
-        sys.exit("Oops! Input must be integers only..")
+    except ValueError:
+        raise ValueError("Oops! Input must be integers only..")
     if (h_toss_num & 1 and ur_toss == 'odd') or (h_toss_num % 2 == 0 and ur_toss == 'even'):
         print("********Hurray! You won toss*********")
         power = 'human'
@@ -153,15 +139,9 @@ else:
         power = 'machine'
 if power == 'human':
     c = input("You can choose either batting or bowling: -> ")
-    try:
-        if type(c) != str or c != 'batting' and c != 'bowling' and c != 'bat' and c != 'bow':
-            raise ValueError
-        if int(c):
-            sys.exit("Oops! Please Provide a valid input..")
-    except ValueError:
-        pass
-    except Exception:
-        sys.exit("Oops! Please Provide a valid input..")
+    if c.isnumeric() or c != 'batting' and c != 'bowling' and c != 'bat' and c != 'bow':
+        raise ValueError("Oops! Please Provide a valid input..")
+
     if c == 'batting' or c == 'bat':
         print("Finally.. You choosed Batting" + " --------------- > " + "Computer chooses Bowling")
         h_score = h_batting()
@@ -177,7 +157,7 @@ if power == 'human':
         c_score = h_bowling()
         if type(h_score) == int:
             print("Computer Scored: " + str(c_score) + " runs ")
-            print("Your target is: --> " + str(c_score + 1)+' runs')
+            print("Your target is: --> " + str(c_score + 1) + ' runs')
             h_score = h_batting(c_score)
             finalresult(h_score, c_score, name)
         else:
@@ -189,7 +169,7 @@ else:
         c_score = h_bowling()
         if type(c_score) == int:
             print("Computer Scored: " + str(c_score) + " runs ")
-            print("Your target is: --> " + str(c_score + 1)+' runs')
+            print("Your target is: --> " + str(c_score + 1) + ' runs')
             h_score = h_batting(c_score)
             finalresult(h_score, c_score, name)
         else:
@@ -203,8 +183,5 @@ else:
             finalresult(h_score, c_score, name)
         else:
             print(h_score)
-
-
-
 
 #                       *************** Author: -> Nanthakumar J J *****************
