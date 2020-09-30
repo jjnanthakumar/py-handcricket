@@ -21,7 +21,5 @@ step5:--> Next type "py <filename>.py" and press enter.
 ****************************************************Thats it play and have fun*******************************************************
 Note:
     --> remember quoutes is only for your reference
-    --> if u followed thes steps properly then sure the program will be executed
+    --> if u followed these steps properly then sure the program will be executed
     --> any errors in code feel free to CONTACT ME "https://jjnanthakumar.github.io"
-
-          
